@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -174,6 +175,66 @@ const Index = () => {
     doc.save('analise_correlacao_amazonia_2025.pdf');
   };
 
+  const generateRealDataPDF = () => {
+    const doc = new jsPDF();
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("RELATÓRIO COM DADOS REAIS - AMAZÔNIA 2025", 20, 20);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+    doc.text("Análise baseada em dados climáticos e socioeconômicos reais", 20, 35);
+    
+    doc.line(20, 45, 190, 45);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("DADOS CLIMÁTICOS REAIS (2025):", 20, 60);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("Janeiro: Chuvas 109.8mm (prevista) vs 110.0mm (real) - Temp: 34.7°C", 20, 75);
+    doc.text("Fevereiro: Chuvas 143.0mm (prevista) vs 178.7mm (real) - Temp: 27.2°C", 20, 85);
+    doc.text("Março: Chuvas 120.6mm (prevista) vs 123.1mm (real) - Temp: 27.5°C", 20, 95);
+    doc.text("Abril: Chuvas 109.0mm (prevista) vs 117.0mm (real) - Temp: 29.6°C", 20, 105);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("ANÁLISE DE VARIAÇÕES:", 20, 125);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("• Fevereiro apresentou maior variação: +35.7mm acima do previsto", 20, 140);
+    doc.text("• Janeiro teve maior temperatura registrada: 34.7°C", 20, 150);
+    doc.text("• Umidade variou entre 29% e 77% no período", 20, 160);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("DADOS SOCIOECONÔMICOS:", 20, 180);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("• Produção agrícola afetada pela variação climática", 20, 195);
+    doc.text("• Acesso à água potável impactado pelas mudanças de precipitação", 20, 205);
+    doc.text("• Segurança alimentar correlacionada com padrões climáticos", 20, 215);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("CONCLUSÕES:", 20, 235);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("• Necessidade de monitoramento contínuo dos dados climáticos", 20, 250);
+    doc.text("• Implementação de políticas de adaptação às mudanças climáticas", 20, 260);
+    
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(9);
+    doc.text("© 2025 - Relatório gerado com dados reais do Instituto I²A²", 20, 280);
+    
+    doc.save('relatorio_dados_reais_amazonia_2025.pdf');
+  };
+
   const handleExportReport = () => {
     try {
       generatePDFReport();
@@ -182,6 +243,19 @@ const Index = () => {
       });
     } catch (error) {
       toast.error("Erro ao gerar PDF", {
+        description: "Tente novamente em alguns instantes"
+      });
+    }
+  };
+
+  const handleExportRealDataReport = () => {
+    try {
+      generateRealDataPDF();
+      toast.success("Relatório com Dados Reais exportado!", {
+        description: "PDF com análise detalhada dos dados climáticos e socioeconômicos reais de 2025"
+      });
+    } catch (error) {
+      toast.error("Erro ao gerar PDF com dados reais", {
         description: "Tente novamente em alguns instantes"
       });
     }
@@ -200,6 +274,28 @@ const Index = () => {
     
     toast.info("Navegando para o Dashboard VIBE Coding", {
       description: "Visualizando análise exploratória completa com correlações e insights"
+    });
+  };
+
+  const handleViewCompleteDashboard = () => {
+    // Navegar para todas as abas em sequência para mostrar o dashboard completo
+    setActiveTab("climate");
+    
+    setTimeout(() => {
+      setActiveTab("socioeconomic");
+      setTimeout(() => {
+        setActiveTab("analysis");
+        setTimeout(() => {
+          const analysisSection = document.querySelector('[data-state="active"]');
+          if (analysisSection) {
+            analysisSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 200);
+      }, 1000);
+    }, 1000);
+    
+    toast.success("Dashboard Completo Ativado!", {
+      description: "Navegando por todas as seções: Dados Climáticos → Socioeconômicos → Análise EDA"
     });
   };
 
@@ -255,6 +351,25 @@ const Index = () => {
           >
             <Download className="w-4 h-4" />
             Análise de Correlações
+          </Button>
+        </div>
+
+        {/* Novos botões corrigidos */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <Button 
+            onClick={handleExportRealDataReport}
+            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3"
+          >
+            <Download className="w-4 h-4" />
+            Exportar Relatório com Dados Reais
+          </Button>
+          <Button 
+            onClick={handleViewCompleteDashboard}
+            variant="outline"
+            className="flex items-center gap-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3"
+          >
+            <Eye className="w-4 h-4" />
+            Visualizar Dashboard Completo
           </Button>
         </div>
 
