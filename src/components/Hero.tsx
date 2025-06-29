@@ -9,12 +9,6 @@ const Hero = () => {
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-emerald-900 via-teal-800 to-green-900">
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{
-          backgroundImage: `url('/lovable-uploads/ed136d99-91c0-40d6-8c25-12543007dbbd.png')`
-        }}
-      />
       <div className="relative container mx-auto px-4 py-16 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-emerald-200 to-teal-200 bg-clip-text text-transparent">
