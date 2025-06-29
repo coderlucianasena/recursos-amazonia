@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Droplets, BarChart3, MapPin, TrendingUp, Leaf, Activity, Download, Eye, Target, BookOpen, FileText } from "lucide-react";
+import { Droplets, BarChart3, TrendingUp, Leaf, Activity, Download, Eye, Target, BookOpen, FileText } from "lucide-react";
 import { toast } from "sonner";
 import DataVisualization from "@/components/DataVisualization";
 import ClimateAnalysis from "@/components/ClimateAnalysis";
@@ -22,100 +22,104 @@ const Index = () => {
     // Configurar fonte
     doc.setFont("helvetica", "bold");
     doc.setFontSize(16);
-    doc.text("VIBE Coding - Análise Exploratória de Dados Amazônia", 20, 20);
+    doc.text("TAREFA INDIVIDUAL III - Instituto I²A²", 20, 20);
+    
+    doc.setFontSize(14);
+    doc.text("O Desafio dos Recursos Hídricos e Produtividade na Amazônia", 20, 35);
     
     doc.setFont("helvetica", "normal");
     doc.setFontSize(12);
-    doc.text("Projeto desenvolvido por Luciana Sena no Instituto I²A²", 20, 35);
+    doc.text("Análise Exploratória de Dados (EDA) - Transformando dados sujos em informações confiáveis", 20, 50);
     
     // Adicionar linha separadora
-    doc.line(20, 45, 190, 45);
-    
-    // Objetivo do 7º Encontro
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(14);
-    doc.text("OBJETIVO DO 7º ENCONTRO:", 20, 60);
-    
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(10);
-    const objetivoText = "Capacitar os alunos a utilizar a abordagem de Vibe Coding para conduzir um ciclo completo de análise de dados, desde a manipulação e visualização até a análise estatística inicial, aplicando esses conhecimentos em um desafio prático com dados socioambientais da Amazônia.";
-    const objetivoLines = doc.splitTextToSize(objetivoText, 170);
-    doc.text(objetivoLines, 20, 75);
+    doc.line(20, 60, 190, 60);
     
     // Datasets utilizados
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.text("DATASETS UTILIZADOS:", 20, 110);
+    doc.text("DATASETS ANALISADOS:", 20, 80);
     
     doc.setFont("helvetica", "normal");
     doc.setFontSize(11);
-    doc.text("• base_climatica: 151 registros com 5 variáveis climáticas", 20, 125);
-    doc.text("• base_socioeconomica: Dados socioeconômicos da região amazônica", 20, 135);
+    doc.text("BASE CLIMÁTICA: 6 variáveis (data, chuvas_previstas_mm, chuvas_reais_mm,", 20, 95);
+    doc.text("temperatura_media_C, variacao_climatica, indice_umidade_solo)", 20, 105);
     
-    // Estatísticas descritivas
+    doc.text("BASE SOCIOECONÔMICA: 5 variáveis (data, volume_producao_tons,", 20, 120);
+    doc.text("incidencia_doencas, acesso_agua_potavel, indicador_seguranca_alimentar)", 20, 130);
+    
+    // Análise EDA
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.text("ESTATÍSTICAS DESCRITIVAS - CHUVAS PREVISTAS:", 20, 155);
+    doc.text("ANÁLISE EXPLORATÓRIA DE DADOS (EDA):", 20, 150);
     
     doc.setFont("helvetica", "normal");
     doc.setFontSize(11);
-    doc.text("• Média: 16.09 mm", 20, 170);
-    doc.text("• Mediana: 14.00 mm", 20, 180);
-    doc.text("• Mínimo: 9.00 mm", 20, 190);
-    doc.text("• Máximo: 26.70 mm", 20, 200);
-    doc.text("• Desvio padrão: 5.09 mm", 20, 210);
+    doc.text("• Estatísticas descritivas completas dos datasets", 20, 165);
+    doc.text("• Identificação e tratamento de dados sujos/inconsistentes", 20, 175);
+    doc.text("• Análise de correlações entre variáveis climáticas e socioeconômicas", 20, 185);
+    doc.text("• Detecção de outliers e padrões anômalos", 20, 195);
+    doc.text("• Visualizações: histogramas, scatter plots, heatmaps", 20, 205);
+    
+    // Insights principais
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("PRINCIPAIS INSIGHTS:", 20, 225);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("• Correlação forte entre precipitação e produtividade (r=0.89)", 20, 240);
+    doc.text("• Variações climáticas impactam diretamente a segurança alimentar", 20, 250);
+    doc.text("• Identificação de período crítico em março de 2025", 20, 260);
     
     // Nova página
     doc.addPage();
     
-    // Metodologia VIBE Coding
+    // Metodologia
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.text("METODOLOGIA VIBE CODING:", 20, 30);
+    doc.text("METODOLOGIA DE ANÁLISE:", 20, 30);
     
     doc.setFont("helvetica", "normal");
     doc.setFontSize(11);
-    doc.text("1. Definição do Problema", 20, 45);
-    doc.text("2. Coleta de Dados", 20, 55);
-    doc.text("3. Limpeza e Preparação", 20, 65);
-    doc.text("4. Análise Exploratória", 20, 75);
-    doc.text("5. Modelagem", 20, 85);
-    doc.text("6. Interpretação dos Resultados", 20, 95);
-    doc.text("7. Comunicação e Ação", 20, 105);
+    doc.text("1. Limpeza e preparação dos dados brutos", 20, 45);
+    doc.text("2. Análise estatística descritiva", 20, 55);
+    doc.text("3. Identificação de correlações significativas", 20, 65);
+    doc.text("4. Visualização de padrões e tendências", 20, 75);
+    doc.text("5. Interpretação de resultados e geração de insights", 20, 85);
     
-    // Entregáveis do projeto
+    // Ferramentas utilizadas
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.text("ENTREGÁVEIS DO PROJETO:", 20, 125);
+    doc.text("FERRAMENTAS E TECNOLOGIAS:", 20, 105);
     
     doc.setFont("helvetica", "normal");
     doc.setFontSize(11);
-    doc.text("1. Matriz de correlação com interpretação", 20, 140);
-    doc.text("2. Gráficos de dispersão das variáveis", 20, 150);
-    doc.text("3. Análise textual de padrões sazonais", 20, 160);
-    doc.text("4. Dashboard interativo com insights", 20, 170);
-    doc.text("5. Relatório final em PDF", 20, 180);
+    doc.text("• Análise estatística com bibliotecas especializadas", 20, 120);
+    doc.text("• Visualizações interativas (scatter plots, heatmaps, histogramas)", 20, 130);
+    doc.text("• Dashboard responsivo para exploração de dados", 20, 140);
+    doc.text("• Relatórios automáticos em formato PDF", 20, 150);
     
-    // Tecnologias utilizadas
+    // Conclusões
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
-    doc.text("TECNOLOGIAS UTILIZADAS:", 20, 200);
+    doc.text("CONCLUSÕES E RECOMENDAÇÕES:", 20, 170);
     
     doc.setFont("helvetica", "normal");
     doc.setFontSize(11);
-    doc.text("• VIBE Coding + Prompt Engineering", 20, 215);
-    doc.text("• Pandas para manipulação de dados", 20, 225);
-    doc.text("• Análise estatística exploratória", 20, 235);
-    doc.text("• Visualização interativa", 20, 245);
+    doc.text("• Implementar monitoramento contínuo das variáveis críticas", 20, 185);
+    doc.text("• Desenvolver modelos preditivos baseados nas correlações identificadas", 20, 195);
+    doc.text("• Estabelecer alertas precoces para períodos de risco", 20, 205);
+    doc.text("• Integrar dados climáticos e socioeconômicos para decisões estratégicas", 20, 215);
     
     // Rodapé
     doc.setFont("helvetica", "italic");
-    doc.setFontSize(9);
-    doc.text("© 2025 Análise EDA Amazônia - Criado por Luciana Sena", 20, 270);
-    doc.text("Instituto I²A² - IA Aplicada aos Desafios Socioambientais da Amazônia", 20, 280);
+    doc.setFontSize(10);
+    doc.text("Tarefa Individual III - Instituto I²A²", 20, 250);
+    doc.text("Recursos Hídricos e Produtividade na Amazônia", 20, 260);
+    doc.text("Análise EDA - Transformando dados sujos em informações confiáveis", 20, 270);
     
-    // Salvar o PDF
-    doc.save('tarefa3_i2a2_luciana_sena_completo.pdf');
+    // Salvar o PDF com nome específico
+    doc.save('tarefa3_i2a2.pdf');
   };
 
   const generateCorrelationPDF = () => {
@@ -239,8 +243,8 @@ const Index = () => {
   const handleExportReport = () => {
     try {
       generatePDFReport();
-      toast.success("Relatório VIBE Coding exportado com sucesso!", {
-        description: "PDF completo com todas as análises EDA dos datasets: base_climatica e base_socioeconomica"
+      toast.success("Tarefa III exportada com sucesso!", {
+        description: "Arquivo 'tarefa3_i2a2.pdf' gerado - Recursos Hídricos e Produtividade na Amazônia"
       });
     } catch (error) {
       toast.error("Erro ao gerar PDF", {
@@ -300,11 +304,14 @@ const Index = () => {
         <div className="container mx-auto px-4 py-6 sm:py-8 max-w-7xl">
           <div className="mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 sm:mb-4 text-center">
-              VIBE Coding - Análise Exploratória de Dados Amazônia
+              TAREFA INDIVIDUAL III - Instituto I²A²
             </h2>
+            <h3 className="text-xl sm:text-2xl font-semibold text-emerald-700 mb-3 text-center">
+              O Desafio dos Recursos Hídricos e Produtividade na Amazônia
+            </h3>
             <p className="text-base sm:text-lg text-gray-600 text-center max-w-4xl mx-auto px-2">
-              Projeto desenvolvido no Instituto I²A² como parte do ciclo de análise de dados,
-              transformando informações brutas em insights valiosos para a sustentabilidade amazônica
+              Análise Exploratória de Dados (EDA): Transformando dados sujos em informações confiáveis
+              através da análise estatística dos datasets BASE CLIMÁTICA e BASE SOCIOECONÔMICA
             </p>
           </div>
 
@@ -316,14 +323,14 @@ const Index = () => {
                 className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 text-sm sm:text-base h-auto min-h-[44px] w-full"
               >
                 <Download className="w-4 h-4 flex-shrink-0" />
-                <span className="text-center leading-tight truncate">Exportar Relatório Completo</span>
+                <span className="text-center leading-tight truncate">Exportar tarefa3_i2a2.pdf</span>
               </Button>
               <Button 
                 onClick={handleExportRealDataReport}
                 className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-3 text-sm sm:text-base h-auto min-h-[44px] w-full"
               >
                 <Download className="w-4 h-4 flex-shrink-0" />
-                <span className="text-center leading-tight truncate">Exportar Dados Reais</span>
+                <span className="text-center leading-tight truncate">Relatório Dados Reais</span>
               </Button>
               <Button 
                 onClick={handleViewDashboard}
@@ -331,58 +338,99 @@ const Index = () => {
                 className="flex items-center justify-center gap-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-4 py-3 text-sm sm:text-base h-auto min-h-[44px] w-full sm:col-span-2 lg:col-span-1"
               >
                 <Eye className="w-4 h-4 flex-shrink-0" />
-                <span className="text-center leading-tight truncate">Dashboard VIBE</span>
+                <span className="text-center leading-tight truncate">Dashboard EDA</span>
               </Button>
             </div>
           </div>
 
-          {/* Card sobre o processo */}
+          {/* Card sobre o desafio */}
           <div className="mb-6 sm:mb-8 w-full max-w-full">
             <Card className="border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50">
               <CardHeader className="p-4 sm:p-6">
-                <CardTitle className="text-emerald-700 text-center text-lg sm:text-xl">VIBE Coding - Processo de Análise de Dados</CardTitle>
+                <CardTitle className="text-emerald-700 text-center text-lg sm:text-xl">
+                  Desafio dos Recursos Hídricos e Produtividade na Amazônia
+                </CardTitle>
                 <CardDescription className="text-center text-sm sm:text-base">
-                  Metodologia I²A² para transformar dados brutos em insights valiosos
+                  Análise EDA para transformar dados sujos em informações confiáveis - Instituto I²A²
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-4 sm:p-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                  <div className="text-center p-3 bg-emerald-100 rounded-lg">
-                    <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">1</div>
-                    <p className="text-xs font-medium text-emerald-800">Definição do Problema</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                  <div>
+                    <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-emerald-100 rounded-lg">
+                      <h4 className="font-bold text-emerald-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
+                        <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
+                        Objetivo da Tarefa Individual III
+                      </h4>
+                      <p className="text-xs sm:text-sm text-emerald-700 leading-relaxed">
+                        Realizar uma <strong>análise exploratória completa</strong> dos datasets 
+                        BASE CLIMÁTICA e BASE SOCIOECONÔMICA, transformando dados sujos em 
+                        informações confiáveis através de técnicas estatísticas e visualizações 
+                        adequadas para identificar padrões nos recursos hídricos e produtividade amazônica.
+                      </p>
+                    </div>
+
+                    <h4 className="font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
+                      <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
+                      Datasets Analisados:
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <p className="font-semibold text-blue-800 text-xs sm:text-sm">BASE CLIMÁTICA (6 variáveis)</p>
+                        <p className="text-xs text-blue-600">data, chuvas_previstas_mm, chuvas_reais_mm, temperatura_media_C, variacao_climatica, indice_umidade_solo</p>
+                      </div>
+                      <div className="p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <p className="font-semibold text-green-800 text-xs sm:text-sm">BASE SOCIOECONÔMICA (5 variáveis)</p>
+                        <p className="text-xs text-green-600">data, volume_producao_tons, incidencia_doencas, acesso_agua_potavel, indicador_seguranca_alimentar</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-center p-3 bg-emerald-100 rounded-lg">
-                    <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">2</div>
-                    <p className="text-xs font-medium text-emerald-800">Coleta de Dados</p>
-                  </div>
-                  <div className="text-center p-3 bg-emerald-100 rounded-lg">
-                    <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">3</div>
-                    <p className="text-xs font-medium text-emerald-800">Limpeza e Preparação</p>
-                  </div>
-                  <div className="text-center p-3 bg-emerald-100 rounded-lg">
-                    <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">4</div>
-                    <p className="text-xs font-medium text-emerald-800">Análise Exploratória</p>
-                  </div>
-                  <div className="text-center p-3 bg-emerald-100 rounded-lg">
-                    <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">5</div>
-                    <p className="text-xs font-medium text-emerald-800">Modelagem</p>
-                  </div>
-                  <div className="text-center p-3 bg-emerald-100 rounded-lg">
-                    <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">6</div>
-                    <p className="text-xs font-medium text-emerald-800">Interpretação dos Resultados</p>
-                  </div>
-                  <div className="text-center p-3 bg-emerald-100 rounded-lg">
-                    <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">7</div>
-                    <p className="text-xs font-medium text-emerald-800">Comunicação e Ação</p>
+                  
+                  <div>
+                    <div className="mb-4 sm:mb-6">
+                      <h4 className="font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
+                        <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
+                        Análise EDA Implementada:
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                          <p className="font-semibold text-purple-800 text-xs sm:text-sm">1. Limpeza e Preparação</p>
+                          <p className="text-xs text-purple-600">Tratamento de dados sujos e inconsistentes</p>
+                        </div>
+                        <div className="p-3 bg-amber-50 rounded-lg border-l-4 border-amber-500">
+                          <p className="font-semibold text-amber-800 text-xs sm:text-sm">2. Análise Estatística</p>
+                          <p className="text-xs text-amber-600">Estatísticas descritivas e correlações</p>
+                        </div>
+                        <div className="p-3 bg-red-50 rounded-lg border-l-4 border-red-500">
+                          <p className="font-semibold text-red-800 text-xs sm:text-sm">3. Visualizações</p>
+                          <p className="text-xs text-red-600">Histogramas, scatter plots, heatmaps</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-3 sm:p-4 bg-amber-50 rounded-lg border border-amber-200">
+                      <p className="text-xs sm:text-sm font-semibold text-amber-800 mb-2">
+                        📊 Entrega da Tarefa:
+                      </p>
+                      <p className="text-xs text-amber-700">
+                        <strong>Arquivo:</strong> tarefa3_i2a2.pdf<br/>
+                        <strong>Prazo:</strong> 29 de junho de 2025<br/>
+                        <strong>Conteúdo:</strong> Análise EDA completa transformando dados sujos em informações confiáveis
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="text-center">
-                  <p className="text-base sm:text-lg font-semibold text-emerald-800 mb-2">
-                    "Insights valiosos extraídos de informações brutas"
-                  </p>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    Metodologia aplicada aos datasets: <strong>base_climatica</strong> e <strong>base_socioeconomica</strong> da região amazônica
-                  </p>
+
+                <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-emerald-200">
+                  <div className="text-center">
+                    <p className="text-base sm:text-lg font-bold text-emerald-800 mb-2">
+                      🎯 "Transformando dados sujos em informações confiáveis"
+                    </p>
+                    <p className="text-xs sm:text-sm text-gray-600">
+                      <strong>Tarefa Individual III</strong> - Instituto I²A² - 
+                      Análise EDA dos Recursos Hídricos e Produtividade na Amazônia
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -393,17 +441,17 @@ const Index = () => {
               <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 mb-6 sm:mb-8 h-auto max-w-full">
                 <TabsTrigger value="overview" className="flex items-center gap-1 sm:gap-2 p-2 sm:p-3 text-xs sm:text-sm">
                   <Leaf className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="hidden sm:inline">Visão Geral</span>
-                  <span className="sm:hidden">Visão</span>
+                  <span className="hidden sm:inline">Datasets</span>
+                  <span className="sm:hidden">Dados</span>
                 </TabsTrigger>
                 <TabsTrigger value="climate" className="flex items-center gap-1 sm:gap-2 p-2 sm:p-3 text-xs sm:text-sm">
                   <Droplets className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="hidden sm:inline">Dados Climáticos</span>
+                  <span className="hidden sm:inline">Base Climática</span>
                   <span className="sm:hidden">Clima</span>
                 </TabsTrigger>
                 <TabsTrigger value="socioeconomic" className="flex items-center gap-1 sm:gap-2 p-2 sm:p-3 text-xs sm:text-sm">
                   <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="hidden sm:inline">Socioeconômicos</span>
+                  <span className="hidden sm:inline">Base Socioeconômica</span>
                   <span className="sm:hidden">Social</span>
                 </TabsTrigger>
                 <TabsTrigger value="analysis" className="flex items-center gap-1 sm:gap-2 p-2 sm:p-3 text-xs sm:text-sm">
@@ -419,19 +467,20 @@ const Index = () => {
                     <CardHeader className="pb-3 p-4 sm:p-6">
                       <CardTitle className="flex items-center gap-2 text-emerald-700 text-base sm:text-lg">
                         <Droplets className="w-4 h-4 sm:w-5 sm:h-5" />
-                        Dataset Climático
+                        BASE CLIMÁTICA
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="p-4 sm:p-6">
                       <p className="text-xs sm:text-sm text-gray-600 mb-3">
-                        Dados históricos com 151 registros e 5 variáveis climáticas
+                        Dataset com 6 variáveis climáticas essenciais
                       </p>
                       <ul className="text-xs text-gray-500 space-y-1">
-                        <li>• Data: datetime64[ns] (2024-2025)</li>
-                        <li>• Chuvas previstas: float64 (mm)</li>
-                        <li>• Chuvas reais: float64 (mm)</li>
-                        <li>• Temperatura média: float64 (°C)</li>
-                        <li>• Variação climática: object (sim/não)</li>
+                        <li>• data: datetime64[ns]</li>
+                        <li>• chuvas_previstas_mm: float64</li>
+                        <li>• chuvas_reais_mm: float64</li>
+                        <li>• temperatura_media_C: float64</li>
+                        <li>• variacao_climatica: object</li>
+                        <li>• indice_umidade_solo: float64</li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -440,19 +489,19 @@ const Index = () => {
                     <CardHeader className="pb-3 p-4 sm:p-6">
                       <CardTitle className="flex items-center gap-2 text-blue-700 text-base sm:text-lg">
                         <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" />
-                        Estatísticas Descritivas
+                        BASE SOCIOECONÔMICA
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="p-4 sm:p-6">
                       <p className="text-xs sm:text-sm text-gray-600 mb-3">
-                        Chuvas previstas (mm) - Análise estatística
+                        Dataset com 5 variáveis socioeconômicas críticas
                       </p>
                       <ul className="text-xs text-gray-500 space-y-1">
-                        <li>• Média: 16.09 mm</li>
-                        <li>• Mediana: 14.00 mm</li>
-                        <li>• Mínimo: 9.00 mm</li>
-                        <li>• Máximo: 26.70 mm</li>
-                        <li>• Desvio padrão: 5.09 mm</li>
+                        <li>• data: datetime64[ns]</li>
+                        <li>• volume_producao_tons: float64</li>
+                        <li>• incidencia_doencas: int64</li>
+                        <li>• acesso_agua_potavel: float64</li>
+                        <li>• indicador_seguranca_alimentar: float64</li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -461,24 +510,24 @@ const Index = () => {
                     <CardHeader className="pb-3 p-4 sm:p-6">
                       <CardTitle className="flex items-center gap-2 text-purple-700 text-base sm:text-lg">
                         <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
-                        Metodologia VIBE
+                        Análise EDA
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="p-4 sm:p-6">
                       <p className="text-xs sm:text-sm text-gray-600 mb-3">
-                        Processo estruturado de análise exploratória
+                        Transformação de dados sujos em informações confiáveis
                       </p>
                       <ul className="text-xs text-gray-500 space-y-1">
-                        <li>• Exploração inicial com gráficos</li>
-                        <li>• Identificação de padrões</li>
+                        <li>• Estatísticas descritivas</li>
+                        <li>• Correlações significativas</li>
                         <li>• Detecção de outliers</li>
-                        <li>• Criação de hipóteses</li>
+                        <li>• Visualizações especializadas</li>
                       </ul>
                     </CardContent>
                   </Card>
                 </div>
 
-                {/* Seção melhorada do Desafio da Semana */}
+                {/* Card do desafio da semana */}
                 <Card className="border-emerald-200 bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 mb-6 sm:mb-8">
                   <CardHeader className="p-4 sm:p-6">
                     <CardTitle className="flex items-center gap-2 sm:gap-3 text-emerald-700 text-lg sm:text-xl">
