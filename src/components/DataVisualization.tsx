@@ -2,20 +2,56 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Heatmap } from "recharts";
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { Download, FileText, BarChart3, TrendingUp, AlertTriangle, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
-
-const correlationData = [
-  { x: 180, y: 15.5, name: "Jan" },
-  { x: 95, y: 12.3, name: "Fev" },
-  { x: 220, y: 18.2, name: "Mar" },
-  { x: 165, y: 16.8, name: "Abr" },
-  { x: 45, y: 8.9, name: "Mai" },
-  { x: 25, y: 5.2, name: "Jun" },
-];
+import { useState, useEffect } from "react";
 
 const DataVisualization = () => {
+  const [correlationData, setCorrelationData] = useState([
+    { x: 180, y: 15.5, name: "Jan" },
+    { x: 95, y: 12.3, name: "Fev" },
+    { x: 220, y: 18.2, name: "Mar" },
+    { x: 165, y: 16.8, name: "Abr" },
+    { x: 45, y: 8.9, name: "Mai" },
+    { x: 25, y: 5.2, name: "Jun" },
+  ]);
+
+  const [stats, setStats] = useState({
+    cleanData: 94.2,
+    totalRecords: 2847,
+    outliers: 23,
+    correlations: 8
+  });
+
+  const [lastUpdate, setLastUpdate] = useState(new Date());
+
+  // Simulação de dados em tempo real
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Atualiza dados de correlação com pequenas variações
+      setCorrelationData(prevData => 
+        prevData.map(point => ({
+          ...point,
+          x: Math.max(10, point.x + (Math.random() - 0.5) * 10),
+          y: Math.max(2, point.y + (Math.random() - 0.5) * 2)
+        }))
+      );
+
+      // Atualiza estatísticas
+      setStats(prevStats => ({
+        cleanData: Math.max(90, Math.min(98, prevStats.cleanData + (Math.random() - 0.5) * 0.5)),
+        totalRecords: prevStats.totalRecords + Math.floor(Math.random() * 5),
+        outliers: Math.max(15, prevStats.outliers + Math.floor((Math.random() - 0.5) * 3)),
+        correlations: Math.max(5, Math.min(12, prevStats.correlations + Math.floor((Math.random() - 0.5) * 2)))
+      }));
+
+      setLastUpdate(new Date());
+    }, 3000); // Atualiza a cada 3 segundos
+
+    return () => clearInterval(interval);
+  }, []);
+
   const handleExportReport = () => {
     toast.success("Relatório exportado com sucesso!", {
       description: "O arquivo tarefa3_i2a2.pdf foi gerado e está pronto para download."
@@ -24,6 +60,16 @@ const DataVisualization = () => {
 
   return (
     <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h3 className="text-lg font-semibold text-gray-800">Análise EDA - Dados em Tempo Real</h3>
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <span className="text-sm text-gray-600">
+            Última atualização: {lastUpdate.toLocaleTimeString()}
+          </span>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="border-green-200">
           <CardHeader className="pb-3">
@@ -33,10 +79,10 @@ const DataVisualization = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-green-800">94.2%</div>
+            <div className="text-2xl font-bold text-green-800">{stats.cleanData.toFixed(1)}%</div>
             <p className="text-xs text-gray-500">Registros válidos</p>
             <Badge variant="outline" className="mt-2 text-xs border-green-200 text-green-700">
-              2,847 registros
+              {stats.totalRecords.toLocaleString()} registros
             </Badge>
           </CardContent>
         </Card>
@@ -49,7 +95,7 @@ const DataVisualization = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-yellow-800">23</div>
+            <div className="text-2xl font-bold text-yellow-800">{stats.outliers}</div>
             <p className="text-xs text-gray-500">Valores extremos</p>
             <Badge variant="outline" className="mt-2 text-xs border-yellow-200 text-yellow-700">
               Requer análise
@@ -65,7 +111,7 @@ const DataVisualization = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-blue-800">8</div>
+            <div className="text-2xl font-bold text-blue-800">{stats.correlations}</div>
             <p className="text-xs text-gray-500">Significativas (p&lt;0.05)</p>
             <Badge variant="outline" className="mt-2 text-xs border-blue-200 text-blue-700">
               Alta relevância
@@ -76,9 +122,9 @@ const DataVisualization = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Análise de Correlação: Precipitação vs Produção</CardTitle>
+          <CardTitle>Análise de Correlação: Precipitação vs Produção (Tempo Real)</CardTitle>
           <CardDescription>
-            Gráfico de dispersão mostrando a relação entre chuvas reais e volume de produção
+            Gráfico de dispersão mostrando a relação entre chuvas reais e volume de produção - Dados atualizados em tempo real
           </CardDescription>
         </CardHeader>
         <CardContent>
