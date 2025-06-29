@@ -11,6 +11,9 @@ const Footer = () => {
             <p className="text-gray-300 text-sm mt-1">
               Transformando dados em insights para a sustentabilidade
             </p>
+            <p className="text-gray-400 text-xs mt-2">
+              Criado por <span className="text-emerald-400 font-medium">Luciana Sena</span>
+            </p>
           </div>
           
           <div className="flex items-center gap-4">
@@ -38,7 +41,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-700 mt-6 pt-4 text-center">
           <p className="text-gray-400 text-sm">
-            © 2025 Análise EDA Amazônia. Todos os direitos reservados.
+            © 2025 Análise EDA Amazônia - VIBE Coding para o Ciclo de Análise de Dados. Todos os direitos reservados.
           </p>
         </div>
       </div>
