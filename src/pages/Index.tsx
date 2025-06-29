@@ -17,7 +17,7 @@ const Index = () => {
 
   const handleExportReport = () => {
     toast.success("Relatório VIBE Coding exportado com sucesso!", {
-      description: "PDF completo com todas as análises EDA dos dados climáticos da Amazônia - tarefa3_i2a2.pdf"
+      description: "PDF completo com todas as análises EDA dos datasets: base_climatica e base_socioeconomica - tarefa3_i2a2.pdf"
     });
     
     // Simula o download do relatório completo
@@ -69,7 +69,7 @@ const Index = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Button 
             onClick={handleExportReport}
-            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3"
+            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3"
           >
             <Download className="w-4 h-4" />
             Exportar Relatório Completo (PDF)
@@ -77,7 +77,7 @@ const Index = () => {
           <Button 
             onClick={handleViewDashboard}
             variant="outline"
-            className="flex items-center gap-2 border-red-600 text-red-600 hover:bg-red-50 px-6 py-3"
+            className="flex items-center gap-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-6 py-3"
           >
             <Eye className="w-4 h-4" />
             Dashboard VIBE Coding
@@ -93,50 +93,50 @@ const Index = () => {
 
         {/* Card sobre o processo */}
         <div className="mb-8">
-          <Card className="border-red-200 bg-gradient-to-r from-red-50 to-orange-50">
+          <Card className="border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50">
             <CardHeader>
-              <CardTitle className="text-red-700 text-center">VIBE Coding - Processo de Análise de Dados</CardTitle>
+              <CardTitle className="text-emerald-700 text-center">VIBE Coding - Processo de Análise de Dados</CardTitle>
               <CardDescription className="text-center">
                 Metodologia I²A² para transformar dados brutos em insights valiosos
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-7 gap-4 mb-6">
-                <div className="text-center p-3 bg-red-100 rounded-lg">
-                  <div className="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">1</div>
-                  <p className="text-xs font-medium text-red-800">Definição do Problema</p>
+                <div className="text-center p-3 bg-emerald-100 rounded-lg">
+                  <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">1</div>
+                  <p className="text-xs font-medium text-emerald-800">Definição do Problema</p>
                 </div>
-                <div className="text-center p-3 bg-red-100 rounded-lg">
-                  <div className="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">2</div>
-                  <p className="text-xs font-medium text-red-800">Coleta de Dados</p>
+                <div className="text-center p-3 bg-emerald-100 rounded-lg">
+                  <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">2</div>
+                  <p className="text-xs font-medium text-emerald-800">Coleta de Dados</p>
                 </div>
-                <div className="text-center p-3 bg-red-100 rounded-lg">
-                  <div className="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">3</div>
-                  <p className="text-xs font-medium text-red-800">Limpeza e Preparação</p>
+                <div className="text-center p-3 bg-emerald-100 rounded-lg">
+                  <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">3</div>
+                  <p className="text-xs font-medium text-emerald-800">Limpeza e Preparação</p>
                 </div>
-                <div className="text-center p-3 bg-red-100 rounded-lg">
-                  <div className="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">4</div>
-                  <p className="text-xs font-medium text-red-800">Análise Exploratória</p>
+                <div className="text-center p-3 bg-emerald-100 rounded-lg">
+                  <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">4</div>
+                  <p className="text-xs font-medium text-emerald-800">Análise Exploratória</p>
                 </div>
-                <div className="text-center p-3 bg-red-100 rounded-lg">
-                  <div className="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">5</div>
-                  <p className="text-xs font-medium text-red-800">Modelagem</p>
+                <div className="text-center p-3 bg-emerald-100 rounded-lg">
+                  <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">5</div>
+                  <p className="text-xs font-medium text-emerald-800">Modelagem</p>
                 </div>
-                <div className="text-center p-3 bg-red-100 rounded-lg">
-                  <div className="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">6</div>
-                  <p className="text-xs font-medium text-red-800">Interpretação dos Resultados</p>
+                <div className="text-center p-3 bg-emerald-100 rounded-lg">
+                  <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">6</div>
+                  <p className="text-xs font-medium text-emerald-800">Interpretação dos Resultados</p>
                 </div>
-                <div className="text-center p-3 bg-red-100 rounded-lg">
-                  <div className="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">7</div>
-                  <p className="text-xs font-medium text-red-800">Comunicação e Ação</p>
+                <div className="text-center p-3 bg-emerald-100 rounded-lg">
+                  <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-sm font-bold">7</div>
+                  <p className="text-xs font-medium text-emerald-800">Comunicação e Ação</p>
                 </div>
               </div>
               <div className="text-center">
-                <p className="text-lg font-semibold text-red-800 mb-2">
+                <p className="text-lg font-semibold text-emerald-800 mb-2">
                   "Insights valiosos extraídos de informações brutas"
                 </p>
                 <p className="text-sm text-gray-600">
-                  Metodologia aplicada aos dados climáticos e socioeconomicos da região amazônica
+                  Metodologia aplicada aos datasets: <strong>base_climatica</strong> e <strong>base_socioeconomica</strong> da região amazônica
                 </p>
               </div>
             </CardContent>
@@ -229,25 +229,25 @@ const Index = () => {
             </div>
 
             {/* Seção melhorada do Desafio da Semana */}
-            <Card className="border-red-200 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 mb-8">
+            <Card className="border-emerald-200 bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 mb-8">
               <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-red-700 text-xl">
+                <CardTitle className="flex items-center gap-3 text-emerald-700 text-xl">
                   <Target className="w-6 h-6" />
                   Instituto I²A² - Encontro 7: Desafio da Semana
                 </CardTitle>
-                <CardDescription className="text-base text-red-600">
+                <CardDescription className="text-base text-emerald-600">
                   IA Aplicada aos Desafios Socioambientais da Amazônia - VIBE Coding para Análise de Dados
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div>
-                    <div className="mb-6 p-4 bg-red-100 rounded-lg">
-                      <h4 className="font-bold text-red-800 mb-3 flex items-center gap-2">
+                    <div className="mb-6 p-4 bg-emerald-100 rounded-lg">
+                      <h4 className="font-bold text-emerald-800 mb-3 flex items-center gap-2">
                         <BookOpen className="w-5 h-5" />
                         Objetivo do 7º Encontro
                       </h4>
-                      <p className="text-sm text-red-700 leading-relaxed">
+                      <p className="text-sm text-emerald-700 leading-relaxed">
                         Capacitar os alunos a utilizar a abordagem de <strong>Vibe Coding</strong> para 
                         conduzir um ciclo completo de análise de dados, desde a manipulação 
                         e visualização até a análise estatística inicial, aplicando esses 
@@ -277,7 +277,7 @@ const Index = () => {
                       <div className="space-y-3">
                         <div className="p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
                           <p className="font-semibold text-blue-800">1. Análise de Dados</p>
-                          <p className="text-xs text-blue-600">Estruturação e exploração do dataset climático</p>
+                          <p className="text-xs text-blue-600">Estruturação e exploração dos datasets climático e socioeconômico</p>
                         </div>
                         <div className="p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
                           <p className="font-semibold text-green-800">2. Vibe Coding para o Ciclo de Análise de Dados</p>
@@ -300,19 +300,20 @@ const Index = () => {
 
                     <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
                       <p className="text-sm font-semibold text-amber-800 mb-2">
-                        📊 Dataset Utilizado:
+                        📊 Datasets Utilizados:
                       </p>
                       <p className="text-xs text-amber-700">
-                        <strong>df_dados_climaticos</strong> - 151 registros, 5 variáveis (data, chuvas previstas/reais, 
-                        temperatura média, variação climática) coletados na região amazônica durante 2024-2025.
+                        <strong>base_climatica</strong> e <strong>base_socioeconomica</strong> - Dados coletados na região amazônica durante 2024-2025, 
+                        contendo variáveis climáticas (precipitação, temperatura) e indicadores socioeconômicos 
+                        (produção, acesso à água, segurança alimentar).
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-red-200">
+                <div className="mt-6 pt-6 border-t border-emerald-200">
                   <div className="text-center">
-                    <p className="text-lg font-bold text-red-800 mb-2">
+                    <p className="text-lg font-bold text-emerald-800 mb-2">
                       🎯 "Transformando dados em insights para a sustentabilidade amazônica"
                     </p>
                     <p className="text-sm text-gray-600">
