@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -315,34 +316,6 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Botões de ação principais - Mobile First */}
-          <div className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8 w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full max-w-full">
-              <Button 
-                onClick={handleExportReport}
-                className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 text-sm sm:text-base h-auto min-h-[44px] w-full"
-              >
-                <Download className="w-4 h-4 flex-shrink-0" />
-                <span className="text-center leading-tight truncate">Exportar tarefa3_i2a2.pdf</span>
-              </Button>
-              <Button 
-                onClick={handleExportRealDataReport}
-                className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-3 text-sm sm:text-base h-auto min-h-[44px] w-full"
-              >
-                <Download className="w-4 h-4 flex-shrink-0" />
-                <span className="text-center leading-tight truncate">Relatório Dados Reais</span>
-              </Button>
-              <Button 
-                onClick={handleViewDashboard}
-                variant="outline"
-                className="flex items-center justify-center gap-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-4 py-3 text-sm sm:text-base h-auto min-h-[44px] w-full sm:col-span-2 lg:col-span-1"
-              >
-                <Eye className="w-4 h-4 flex-shrink-0" />
-                <span className="text-center leading-tight truncate">Dashboard EDA</span>
-              </Button>
-            </div>
-          </div>
-
           {/* Card sobre o desafio */}
           <div className="mb-6 sm:mb-8 w-full max-w-full">
             <Card className="border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50">
@@ -406,17 +379,6 @@ const Index = () => {
                           <p className="text-xs text-red-600">Histogramas, scatter plots, heatmaps</p>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="p-3 sm:p-4 bg-amber-50 rounded-lg border border-amber-200">
-                      <p className="text-xs sm:text-sm font-semibold text-amber-800 mb-2">
-                        📊 Entrega da Tarefa:
-                      </p>
-                      <p className="text-xs text-amber-700">
-                        <strong>Arquivo:</strong> tarefa3_i2a2.pdf<br/>
-                        <strong>Prazo:</strong> 29 de junho de 2025<br/>
-                        <strong>Conteúdo:</strong> Análise EDA completa transformando dados sujos em informações confiáveis
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -596,17 +558,6 @@ const Index = () => {
                           <li>• <strong>Análise estatística exploratória</strong> - Descoberta de padrões</li>
                           <li>• <strong>Visualização interativa</strong> - Dashboard responsivo</li>
                         </ul>
-
-                        <div className="p-3 sm:p-4 bg-amber-50 rounded-lg border border-amber-200">
-                          <p className="text-xs sm:text-sm font-semibold text-amber-800 mb-2">
-                            📊 Datasets Utilizados:
-                          </p>
-                          <p className="text-xs text-amber-700">
-                            <strong>base_climatica</strong> e <strong>base_socioeconomica</strong> - Dados coletados na região amazônica durante 2024-2025, 
-                            contendo variáveis climáticas (precipitação, temperatura) e indicadores socioeconômicos 
-                            (produção, acesso à água, segurança alimentar).
-                          </p>
-                        </div>
                       </div>
                     </div>
 
@@ -616,7 +567,7 @@ const Index = () => {
                           🎯 "Transformando dados em insights para a sustentabilidade amazônica"
                         </p>
                         <p className="text-xs sm:text-sm text-gray-600">
-                          Projeto desenvolvido por <strong>Luciana Sena</strong> no Instituto I²A² - 
+                          Projeto desenvolvido no Instituto I²A² - 
                           Aplicação prática do VIBE Coding em desafios socioambientais reais
                         </p>
                       </div>
