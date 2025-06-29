@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -11,70 +10,181 @@ import SocioEconomicAnalysis from "@/components/SocioEconomicAnalysis";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import jsPDF from 'jspdf';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const generatePDFContent = () => {
-    const content = `
-VIBE Coding - Análise Exploratória de Dados Amazônia
-Projeto desenvolvido por Luciana Sena no Instituto I²A²
+  const generatePDFReport = () => {
+    const doc = new jsPDF();
+    
+    // Configurar fonte
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("VIBE Coding - Análise Exploratória de Dados Amazônia", 20, 20);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+    doc.text("Projeto desenvolvido por Luciana Sena no Instituto I²A²", 20, 35);
+    
+    // Adicionar linha separadora
+    doc.line(20, 45, 190, 45);
+    
+    // Objetivo do 7º Encontro
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("OBJETIVO DO 7º ENCONTRO:", 20, 60);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    const objetivoText = "Capacitar os alunos a utilizar a abordagem de Vibe Coding para conduzir um ciclo completo de análise de dados, desde a manipulação e visualização até a análise estatística inicial, aplicando esses conhecimentos em um desafio prático com dados socioambientais da Amazônia.";
+    const objetivoLines = doc.splitTextToSize(objetivoText, 170);
+    doc.text(objetivoLines, 20, 75);
+    
+    // Datasets utilizados
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("DATASETS UTILIZADOS:", 20, 110);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("• base_climatica: 151 registros com 5 variáveis climáticas", 20, 125);
+    doc.text("• base_socioeconomica: Dados socioeconômicos da região amazônica", 20, 135);
+    
+    // Estatísticas descritivas
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("ESTATÍSTICAS DESCRITIVAS - CHUVAS PREVISTAS:", 20, 155);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("• Média: 16.09 mm", 20, 170);
+    doc.text("• Mediana: 14.00 mm", 20, 180);
+    doc.text("• Mínimo: 9.00 mm", 20, 190);
+    doc.text("• Máximo: 26.70 mm", 20, 200);
+    doc.text("• Desvio padrão: 5.09 mm", 20, 210);
+    
+    // Nova página
+    doc.addPage();
+    
+    // Metodologia VIBE Coding
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("METODOLOGIA VIBE CODING:", 20, 30);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("1. Definição do Problema", 20, 45);
+    doc.text("2. Coleta de Dados", 20, 55);
+    doc.text("3. Limpeza e Preparação", 20, 65);
+    doc.text("4. Análise Exploratória", 20, 75);
+    doc.text("5. Modelagem", 20, 85);
+    doc.text("6. Interpretação dos Resultados", 20, 95);
+    doc.text("7. Comunicação e Ação", 20, 105);
+    
+    // Entregáveis do projeto
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("ENTREGÁVEIS DO PROJETO:", 20, 125);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("1. Matriz de correlação com interpretação", 20, 140);
+    doc.text("2. Gráficos de dispersão das variáveis", 20, 150);
+    doc.text("3. Análise textual de padrões sazonais", 20, 160);
+    doc.text("4. Dashboard interativo com insights", 20, 170);
+    doc.text("5. Relatório final em PDF", 20, 180);
+    
+    // Tecnologias utilizadas
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("TECNOLOGIAS UTILIZADAS:", 20, 200);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("• VIBE Coding + Prompt Engineering", 20, 215);
+    doc.text("• Pandas para manipulação de dados", 20, 225);
+    doc.text("• Análise estatística exploratória", 20, 235);
+    doc.text("• Visualização interativa", 20, 245);
+    
+    // Rodapé
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(9);
+    doc.text("© 2025 Análise EDA Amazônia - Criado por Luciana Sena", 20, 270);
+    doc.text("Instituto I²A² - IA Aplicada aos Desafios Socioambientais da Amazônia", 20, 280);
+    
+    // Salvar o PDF
+    doc.save('tarefa3_i2a2_luciana_sena_completo.pdf');
+  };
 
-OBJETIVO DO 7º ENCONTRO:
-Capacitar os alunos a utilizar a abordagem de Vibe Coding para conduzir um ciclo completo de análise de dados, desde a manipulação e visualização até a análise estatística inicial, aplicando esses conhecimentos em um desafio prático com dados socioambientais da Amazônia.
-
-DATASETS UTILIZADOS:
-- base_climatica: 151 registros com 5 variáveis climáticas
-- base_socioeconomica: Dados socioeconômicos da região amazônica
-
-ESTATÍSTICAS DESCRITIVAS - CHUVAS PREVISTAS:
-- Média: 16.09 mm
-- Mediana: 14.00 mm
-- Mínimo: 9.00 mm
-- Máximo: 26.70 mm
-- Desvio padrão: 5.09 mm
-
-METODOLOGIA VIBE CODING:
-1. Definição do Problema
-2. Coleta de Dados
-3. Limpeza e Preparação
-4. Análise Exploratória
-5. Modelagem
-6. Interpretação dos Resultados
-7. Comunicação e Ação
-
-ENTREGÁVEIS DO PROJETO:
-1. Matriz de correlação com interpretação
-2. Gráficos de dispersão das variáveis
-3. Análise textual de padrões sazonais
-4. Dashboard interativo com insights
-5. Relatório final em PDF
-
-TECNOLOGIAS UTILIZADAS:
-- VIBE Coding + Prompt Engineering
-- Pandas para manipulação de dados
-- Análise estatística exploratória
-- Visualização interativa
-
-© 2025 Análise EDA Amazônia - Criado por Luciana Sena
-Instituto I²A² - IA Aplicada aos Desafios Socioambientais da Amazônia
-    `;
-    return content;
+  const generateCorrelationPDF = () => {
+    const doc = new jsPDF();
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("ANÁLISE DE CORRELAÇÃO - AMAZÔNIA 2025", 20, 20);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+    doc.text("Criado por Luciana Sena - Instituto I²A²", 20, 35);
+    
+    doc.line(20, 45, 190, 45);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("MATRIZ DE CORRELAÇÃO:", 20, 60);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("Dataset: base_climatica e base_socioeconomica", 20, 75);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("CORRELAÇÕES IDENTIFICADAS:", 20, 95);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("1. Chuvas Previstas vs Chuvas Reais: Correlação forte positiva (0.85)", 20, 110);
+    doc.text("2. Temperatura vs Precipitação: Correlação moderada negativa (-0.45)", 20, 120);
+    doc.text("3. Variação Climática vs Indicadores Socioeconômicos: Correlação moderada (0.52)", 20, 130);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("INTERPRETAÇÃO:", 20, 150);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    const interpretacaoLines = doc.splitTextToSize("• Existe uma forte correlação entre as chuvas previstas e reais\n• Temperaturas mais altas tendem a reduzir a precipitação\n• Variações climáticas impactam diretamente os indicadores socioeconômicos", 170);
+    doc.text(interpretacaoLines, 20, 165);
+    
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("RECOMENDAÇÕES:", 20, 200);
+    
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(11);
+    doc.text("• Monitoramento contínuo das variáveis climáticas", 20, 215);
+    doc.text("• Desenvolvimento de modelos preditivos", 20, 225);
+    doc.text("• Implementação de políticas de adaptação climática", 20, 235);
+    
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(9);
+    doc.text("© 2025 - Análise desenvolvida no Instituto I²A²", 20, 270);
+    
+    doc.save('analise_correlacao_amazonia_2025.pdf');
   };
 
   const handleExportReport = () => {
-    const content = generatePDFContent();
-    const element = document.createElement('a');
-    const file = new Blob([content], { type: 'text/plain' });
-    element.href = URL.createObjectURL(file);
-    element.download = 'tarefa3_i2a2_luciana_sena_completo.pdf';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-    
-    toast.success("Relatório VIBE Coding exportado com sucesso!", {
-      description: "PDF completo com todas as análises EDA dos datasets: base_climatica e base_socioeconomica"
-    });
+    try {
+      generatePDFReport();
+      toast.success("Relatório VIBE Coding exportado com sucesso!", {
+        description: "PDF completo com todas as análises EDA dos datasets: base_climatica e base_socioeconomica"
+      });
+    } catch (error) {
+      toast.error("Erro ao gerar PDF", {
+        description: "Tente novamente em alguns instantes"
+      });
+    }
   };
 
   const handleViewDashboard = () => {
@@ -94,45 +204,16 @@ Instituto I²A² - IA Aplicada aos Desafios Socioambientais da Amazônia
   };
 
   const handleExportCorrelationAnalysis = () => {
-    const correlationContent = `
-ANÁLISE DE CORRELAÇÃO - AMAZÔNIA 2025
-Criado por Luciana Sena - Instituto I²A²
-
-MATRIZ DE CORRELAÇÃO:
-Dataset: base_climatica e base_socioeconomica
-
-CORRELAÇÕES IDENTIFICADAS:
-1. Chuvas Previstas vs Chuvas Reais: Correlação forte positiva (0.85)
-2. Temperatura vs Precipitação: Correlação moderada negativa (-0.45)
-3. Variação Climática vs Indicadores Socioeconômicos: Correlação moderada (0.52)
-
-INTERPRETAÇÃO:
-- Existe uma forte correlação entre as chuvas previstas e reais
-- Temperaturas mais altas tendem a reduzir a precipitação
-- Variações climáticas impactam diretamente os indicadores socioeconômicos
-
-RECOMENDAÇÕES:
-- Monitoramento contínuo das variáveis climáticas
-- Desenvolvimento de modelos preditivos
-- Implementação de políticas de adaptação climática
-
-METODOLOGIA VIBE CODING APLICADA:
-Análise exploratória de dados com foco em insights valiosos para sustentabilidade amazônica.
-
-© 2025 - Análise desenvolvida no Instituto I²A²
-    `;
-    
-    const element = document.createElement('a');
-    const file = new Blob([correlationContent], { type: 'text/plain' });
-    element.href = URL.createObjectURL(file);
-    element.download = 'analise_correlacao_amazonia_2025.pdf';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-    
-    toast.success("Análise de Correlação exportada!", {
-      description: "Matriz de correlação com interpretação completa - formato PDF"
-    });
+    try {
+      generateCorrelationPDF();
+      toast.success("Análise de Correlação exportada!", {
+        description: "Matriz de correlação com interpretação completa - formato PDF"
+      });
+    } catch (error) {
+      toast.error("Erro ao gerar PDF de correlação", {
+        description: "Tente novamente em alguns instantes"
+      });
+    }
   };
 
   return (
