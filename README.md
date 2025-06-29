@@ -1,73 +1,128 @@
-# Welcome to your Lovable project
 
-## Project info
+# Análise EDA - Recursos Hídricos da Amazônia
 
-**URL**: https://lovable.dev/projects/349888c5-edf9-468d-ba34-58cbab7d97b9
+Um dashboard interativo para análise exploratória de dados (EDA) dos recursos hídricos da região amazônica, desenvolvido para o programa VIBE Coding - Ciclo de Análise de Dados.
 
-## How can I edit this code?
+## 📊 Sobre o Projeto
 
-There are several ways of editing your application.
+Este projeto apresenta uma análise abrangente dos recursos hídricos da Amazônia, explorando dados climáticos, socioeconômicos e ambientais através de visualizações interativas e insights baseados em dados.
 
-**Use Lovable**
+### Principais Funcionalidades
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/349888c5-edf9-468d-ba34-58cbab7d97b9) and start prompting.
+- **Dashboard Interativo**: Visualizações dinâmicas com gráficos e métricas em tempo real
+- **Análise Climática**: Dados de precipitação, temperatura e umidade da região
+- **Análise Socioeconômica**: Indicadores populacionais e econômicos relacionados aos recursos hídricos
+- **Visualizações Avançadas**: Gráficos interativos utilizando Recharts
+- **Design Responsivo**: Interface otimizada para desktop, tablet e mobile (mobile-first)
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tecnologias Utilizadas
 
-**Use your preferred IDE**
+- **React** - Biblioteca para construção da interface
+- **TypeScript** - Tipagem estática para JavaScript
+- **Vite** - Build tool e dev server
+- **Tailwind CSS** - Framework CSS utilitário
+- **shadcn/ui** - Componentes de UI modernos
+- **Recharts** - Biblioteca para gráficos e visualizações
+- **Lucide React** - Ícones SVG
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Como Executar o Projeto
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Pré-requisitos
 
-Follow these steps:
+- Node.js (versão 18 ou superior)
+- npm ou yarn
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+### Instalação
+
+```bash
+# Clone o repositório
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navegue até o diretório do projeto
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Instale as dependências
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+O projeto estará disponível em `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📱 Deploy
 
-**Use GitHub Codespaces**
+Este projeto pode ser facilmente deployado através do [Lovable](https://lovable.dev/projects/349888c5-edf9-468d-ba34-58cbab7d97b9):
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Acesse o projeto no Lovable
+2. Clique em **Share** → **Publish**
+3. Seu dashboard estará disponível online
 
-## What technologies are used for this project?
+### Domínio Customizado
 
-This project is built with:
+Para conectar um domínio personalizado:
+1. Navegue até **Project** → **Settings** → **Domains**
+2. Clique em **Connect Domain**
+3. Siga as instruções para configuração
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Mais informações: [Configurando domínio customizado](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
 
-## How can I deploy this project?
+## 📈 Estrutura do Projeto
 
-Simply open [Lovable](https://lovable.dev/projects/349888c5-edf9-468d-ba34-58cbab7d97b9) and click on Share -> Publish.
+```
+src/
+├── components/          # Componentes React reutilizáveis
+│   ├── ui/             # Componentes de UI (shadcn/ui)
+│   ├── ClimateAnalysis.tsx
+│   ├── DataVisualization.tsx
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── SocioEconomicAnalysis.tsx
+│   └── Footer.tsx
+├── pages/              # Páginas da aplicação
+├── hooks/              # Custom hooks
+└── lib/                # Utilitários e configurações
+```
 
-## Can I connect a custom domain to my Lovable project?
+## 🎯 Objetivos do Projeto
 
-Yes, you can!
+- Democratizar o acesso a dados sobre recursos hídricos amazônicos
+- Fornecer insights visuais para tomada de decisões sustentáveis
+- Demonstrar técnicas avançadas de análise exploratória de dados
+- Criar uma ferramenta educativa sobre a importância da preservação hídrica
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📊 Dados e Fontes
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Os dados utilizados neste projeto são baseados em:
+- Institutos de pesquisa ambientais
+- Dados governamentais de recursos hídricos
+- Estudos acadêmicos sobre a região amazônica
+- Indicadores socioeconômicos regionais
+
+## 🤝 Contribuições
+
+Este projeto foi desenvolvido como parte do programa VIBE Coding, focando em boas práticas de desenvolvimento e análise de dados.
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+
+## 👩‍💻 Autora
+
+**Luciana Sena**  
+*Desenvolvedora e Analista de Dados*
+
+- 🔗 [LinkedIn](https://linkedin.com)
+- 🐙 [GitHub](https://github.com)
+- 📧 Contato profissional disponível via LinkedIn
+
+---
+
+*Desenvolvido com 💚 para o programa VIBE Coding - Ciclo de Análise de Dados*  
+*Transformando dados em insights para a sustentabilidade da Amazônia*
+
+---
+
+### 📚 Sobre o VIBE Coding
+
+O VIBE Coding é um programa educacional focado em análise de dados e desenvolvimento de soluções tecnológicas para desafios ambientais e sociais, promovendo o uso responsável da tecnologia para um futuro mais sustentável.
