@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Droplets, BarChart3, MapPin, TrendingUp, Leaf, Activity, Download, Eye } from "lucide-react";
+import { Droplets, BarChart3, MapPin, TrendingUp, Leaf, Activity, Download, Eye, Target, BookOpen, FileText } from "lucide-react";
 import { toast } from "sonner";
 import DataVisualization from "@/components/DataVisualization";
 import ClimateAnalysis from "@/components/ClimateAnalysis";
@@ -17,13 +17,13 @@ const Index = () => {
 
   const handleExportReport = () => {
     toast.success("Relatório VIBE Coding exportado com sucesso!", {
-      description: "PDF completo com análise EDA dos dados climáticos da Amazônia - tarefa3_i2a2.pdf"
+      description: "PDF completo com todas as análises EDA dos dados climáticos da Amazônia - tarefa3_i2a2.pdf"
     });
     
-    // Simula o download do relatório
+    // Simula o download do relatório completo
     const link = document.createElement('a');
     link.href = '#';
-    link.download = 'tarefa3_i2a2_luciana_sena.pdf';
+    link.download = 'tarefa3_i2a2_luciana_sena_completo.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -174,13 +174,14 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600 mb-3">
-                    Dados históricos com variáveis climáticas essenciais
+                    Dados históricos com 151 registros e 5 variáveis climáticas
                   </p>
                   <ul className="text-xs text-gray-500 space-y-1">
-                    <li>• Data de coleta (2024-2025)</li>
-                    <li>• Chuvas previstas vs reais (mm)</li>
-                    <li>• Temperatura média (°C)</li>
-                    <li>• Variação climática (sim/não)</li>
+                    <li>• Data: datetime64[ns] (2024-2025)</li>
+                    <li>• Chuvas previstas: float64 (mm)</li>
+                    <li>• Chuvas reais: float64 (mm)</li>
+                    <li>• Temperatura média: float64 (°C)</li>
+                    <li>• Variação climática: object (sim/não)</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -189,18 +190,19 @@ const Index = () => {
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center gap-2 text-blue-700">
                     <TrendingUp className="w-5 h-5" />
-                    Correlações Identificadas
+                    Estatísticas Descritivas
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600 mb-3">
-                    Análise de relações entre variáveis climáticas
+                    Chuvas previstas (mm) - Análise estatística
                   </p>
                   <ul className="text-xs text-gray-500 space-y-1">
-                    <li>• Chuvas previstas vs reais: 1.00 (forte)</li>
-                    <li>• Chuvas vs temperatura: 0.96 (forte)</li>
-                    <li>• Temperatura vs chuvas reais: 0.97 (forte)</li>
-                    <li>• Padrões sazonais identificados</li>
+                    <li>• Média: 16.09 mm</li>
+                    <li>• Mediana: 14.00 mm</li>
+                    <li>• Mínimo: 9.00 mm</li>
+                    <li>• Máximo: 26.70 mm</li>
+                    <li>• Desvio padrão: 5.09 mm</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -226,33 +228,97 @@ const Index = () => {
               </Card>
             </div>
 
-            <Card className="border-amber-200">
+            {/* Seção melhorada do Desafio da Semana */}
+            <Card className="border-red-200 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 mb-8">
               <CardHeader>
-                <CardTitle className="text-amber-700">Instituto I²A² - Desafio da Semana</CardTitle>
-                <CardDescription>
-                  VIBE Coding para análise das relações entre variáveis climáticas amazônicas
+                <CardTitle className="flex items-center gap-3 text-red-700 text-xl">
+                  <Target className="w-6 h-6" />
+                  Instituto I²A² - Encontro 7: Desafio da Semana
+                </CardTitle>
+                <CardDescription className="text-base text-red-600">
+                  IA Aplicada aos Desafios Socioambientais da Amazônia - VIBE Coding para Análise de Dados
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Entregáveis do Projeto:</h4>
-                    <ol className="text-sm text-gray-600 space-y-1 list-decimal list-inside">
-                      <li>Matriz de correlação com interpretação</li>
-                      <li>Gráficos de dispersão das variáveis</li>
-                      <li>Análise textual de padrões sazonais</li>
-                      <li>Dashboard interativo com insights</li>
-                      <li>Relatório final em PDF</li>
+                    <div className="mb-6 p-4 bg-red-100 rounded-lg">
+                      <h4 className="font-bold text-red-800 mb-3 flex items-center gap-2">
+                        <BookOpen className="w-5 h-5" />
+                        Objetivo do 7º Encontro
+                      </h4>
+                      <p className="text-sm text-red-700 leading-relaxed">
+                        Capacitar os alunos a utilizar a abordagem de <strong>Vibe Coding</strong> para 
+                        conduzir um ciclo completo de análise de dados, desde a manipulação 
+                        e visualização até a análise estatística inicial, aplicando esses 
+                        conhecimentos em um desafio prático com dados socioambientais da Amazônia.
+                      </p>
+                    </div>
+
+                    <h4 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
+                      <FileText className="w-5 h-5" />
+                      Entregáveis do Projeto:
+                    </h4>
+                    <ol className="text-sm text-gray-700 space-y-2 list-decimal list-inside">
+                      <li><strong>Matriz de correlação com interpretação</strong> - Análise das relações entre variáveis</li>
+                      <li><strong>Gráficos de dispersão das variáveis</strong> - Visualização de padrões e tendências</li>
+                      <li><strong>Análise textual de padrões sazonais</strong> - Interpretação dos dados temporais</li>
+                      <li><strong>Dashboard interativo com insights</strong> - Interface visual para exploração</li>
+                      <li><strong>Relatório final em PDF</strong> - Documento consolidado com todas as análises</li>
                     </ol>
                   </div>
+                  
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Tecnologias Utilizadas:</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      <li>• VIBE Coding + Prompt Engineering</li>
-                      <li>• Pandas para manipulação de dados</li>
-                      <li>• Análise estatística exploratória</li>
-                      <li>• Visualização interativa</li>
+                    <div className="mb-6">
+                      <h4 className="font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <Activity className="w-5 h-5" />
+                        Mapa da Trilha do Conhecimento:
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                          <p className="font-semibold text-blue-800">1. Análise de Dados</p>
+                          <p className="text-xs text-blue-600">Estruturação e exploração do dataset climático</p>
+                        </div>
+                        <div className="p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                          <p className="font-semibold text-green-800">2. Vibe Coding para o Ciclo de Análise de Dados</p>
+                          <p className="text-xs text-green-600">Metodologia aplicada para insights valiosos</p>
+                        </div>
+                        <div className="p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                          <p className="font-semibold text-purple-800">3. Desafio da Semana</p>
+                          <p className="text-xs text-purple-600">Aplicação prática em dados amazônicos</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h4 className="font-bold text-gray-800 mb-3">Tecnologias Utilizadas:</h4>
+                    <ul className="text-sm text-gray-600 space-y-1 mb-4">
+                      <li>• <strong>VIBE Coding + Prompt Engineering</strong> - Metodologia inovadora</li>
+                      <li>• <strong>Pandas para manipulação de dados</strong> - Processamento eficiente</li>
+                      <li>• <strong>Análise estatística exploratória</strong> - Descoberta de padrões</li>
+                      <li>• <strong>Visualização interativa</strong> - Dashboard responsivo</li>
                     </ul>
+
+                    <div className="p-4 bg-amber-50 rounded-lg border border-amber-200">
+                      <p className="text-sm font-semibold text-amber-800 mb-2">
+                        📊 Dataset Utilizado:
+                      </p>
+                      <p className="text-xs text-amber-700">
+                        <strong>df_dados_climaticos</strong> - 151 registros, 5 variáveis (data, chuvas previstas/reais, 
+                        temperatura média, variação climática) coletados na região amazônica durante 2024-2025.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-red-200">
+                  <div className="text-center">
+                    <p className="text-lg font-bold text-red-800 mb-2">
+                      🎯 "Transformando dados em insights para a sustentabilidade amazônica"
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      Projeto desenvolvido por <strong>Luciana Sena</strong> no Instituto I²A² - 
+                      Aplicação prática do VIBE Coding em desafios socioambientais reais
+                    </p>
                   </div>
                 </div>
               </CardContent>
