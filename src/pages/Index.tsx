@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -338,6 +337,13 @@ const Index = () => {
             Exportar Relatório Completo (PDF)
           </Button>
           <Button 
+            onClick={handleExportRealDataReport}
+            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3"
+          >
+            <Download className="w-4 h-4" />
+            Exportar Relatório com Dados Reais
+          </Button>
+          <Button 
             onClick={handleViewDashboard}
             variant="outline"
             className="flex items-center gap-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-6 py-3"
@@ -346,30 +352,19 @@ const Index = () => {
             Dashboard VIBE Coding
           </Button>
           <Button 
-            onClick={handleExportCorrelationAnalysis}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
-          >
-            <Download className="w-4 h-4" />
-            Análise de Correlações
-          </Button>
-        </div>
-
-        {/* Novos botões corrigidos */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <Button 
-            onClick={handleExportRealDataReport}
-            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3"
-          >
-            <Download className="w-4 h-4" />
-            Exportar Relatório com Dados Reais
-          </Button>
-          <Button 
             onClick={handleViewCompleteDashboard}
             variant="outline"
             className="flex items-center gap-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3"
           >
             <Eye className="w-4 h-4" />
             Visualizar Dashboard Completo
+          </Button>
+          <Button 
+            onClick={handleExportCorrelationAnalysis}
+            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3"
+          >
+            <Download className="w-4 h-4" />
+            Análise de Correlações
           </Button>
         </div>
 
