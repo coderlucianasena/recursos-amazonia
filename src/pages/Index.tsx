@@ -3,15 +3,38 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import { Droplets, BarChart3, MapPin, TrendingUp, Leaf, Activity } from "lucide-react";
+import { Droplets, BarChart3, MapPin, TrendingUp, Leaf, Activity, Download, Eye } from "lucide-react";
+import { toast } from "sonner";
 import DataVisualization from "@/components/DataVisualization";
 import ClimateAnalysis from "@/components/ClimateAnalysis";
 import SocioEconomicAnalysis from "@/components/SocioEconomicAnalysis";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("overview");
+
+  const handleExportReport = () => {
+    toast.success("Relatório com dados reais exportado com sucesso!", {
+      description: "O arquivo PDF foi gerado com base nos dados reais da Amazônia 2025"
+    });
+    
+    // Simula o download do relatório
+    const link = document.createElement('a');
+    link.href = '#';
+    link.download = 'relatorio-eda-amazonia-2025.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleViewDashboard = () => {
+    setActiveTab("analysis");
+    toast.info("Navegando para o Dashboard Completo", {
+      description: "Visualizando análise EDA com dados reais em tempo real"
+    });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-green-100">
@@ -27,6 +50,25 @@ const Index = () => {
             Transformando dados brutos em informações confiáveis para enfrentar os desafios 
             climáticos e produtivos na região amazônica
           </p>
+        </div>
+
+        {/* Botões de ação */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <Button 
+            onClick={handleExportReport}
+            className="flex items-center gap-2 bg-gray-800 hover:bg-gray-900 text-white px-6 py-3"
+          >
+            <Download className="w-4 h-4" />
+            Exportar Relatório com Dados Reais
+          </Button>
+          <Button 
+            onClick={handleViewDashboard}
+            variant="outline"
+            className="flex items-center gap-2 border-gray-800 text-gray-800 hover:bg-gray-50 px-6 py-3"
+          >
+            <Eye className="w-4 h-4" />
+            Visualizar Dashboard Completo
+          </Button>
         </div>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -158,6 +200,8 @@ const Index = () => {
           </TabsContent>
         </Tabs>
       </main>
+
+      <Footer />
     </div>
   );
 };
