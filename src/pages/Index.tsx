@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -314,6 +313,34 @@ const Index = () => {
               Análise Exploratória de Dados (EDA): Transformando dados sujos em informações confiáveis
               através da análise estatística dos datasets BASE CLIMÁTICA e BASE SOCIOECONÔMICA
             </p>
+          </div>
+
+          {/* Botões de ação principais - Mobile First */}
+          <div className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full max-w-full">
+              <Button 
+                onClick={handleExportReport}
+                className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 text-sm sm:text-base h-auto min-h-[44px] w-full"
+              >
+                <Download className="w-4 h-4 flex-shrink-0" />
+                <span className="text-center leading-tight truncate">Exportar tarefa3_i2a2.pdf</span>
+              </Button>
+              <Button 
+                onClick={handleExportRealDataReport}
+                className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-3 text-sm sm:text-base h-auto min-h-[44px] w-full"
+              >
+                <Download className="w-4 h-4 flex-shrink-0" />
+                <span className="text-center leading-tight truncate">Relatório Dados Reais</span>
+              </Button>
+              <Button 
+                onClick={handleViewDashboard}
+                variant="outline"
+                className="flex items-center justify-center gap-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-4 py-3 text-sm sm:text-base h-auto min-h-[44px] w-full sm:col-span-2 lg:col-span-1"
+              >
+                <Eye className="w-4 h-4 flex-shrink-0" />
+                <span className="text-center leading-tight truncate">Dashboard EDA</span>
+              </Button>
+            </div>
           </div>
 
           {/* Card sobre o desafio */}
