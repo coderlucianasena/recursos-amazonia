@@ -36,10 +36,10 @@ Este projeto apresenta uma análise abrangente dos recursos hídricos da Amazôn
 
 ```bash
 # Clone o repositório
-git clone <YOUR_GIT_URL>
+git clone https://github.com/coderlucianasena/recursos-amazonia.git
 
 # Navegue até o diretório do projeto
-cd <YOUR_PROJECT_NAME>
+cd recursos-amazonia
 
 # Instale as dependências
 npm install
@@ -48,6 +48,10 @@ npm install
 npm run dev
 ```
 
+## 🌐 Deploy
+
+O projeto está disponível online no Vercel:
+**https://recursos-amazonia.vercel.app**
 
 ## 📈 Estrutura do Projeto
 
@@ -94,11 +98,13 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 **Luciana Sena**  
 *Desenvolvedora e Analista de Dados*
 
-- 🔗 [LinkedIn](www.linkedin.com/in/coderlucianasena)
-- 🐙 [GitHub](https://github.com/coderlucianasena/recursos-amazonia.git)
+- 🔗 **LinkedIn**: https://www.linkedin.com/in/coderlucianasena/
+- 🐙 **GitHub**: https://github.com/coderlucianasena/recursos-amazonia
 - 📧 Contato profissional disponível via LinkedIn
 
 ---
+
+> **Nota**: Este projeto foi desenvolvido como atividade acadêmica para o **Instituto I²A² (Intelligence Artificielle Appliquée)**, aplicando conceitos de análise exploratória de dados e desenvolvimento de dashboards interativos.
 
 *Desenvolvido com 💚 para o programa VIBE Coding - Ciclo de Análise de Dados*  
 *Transformando dados em insights para a sustentabilidade da Amazônia*

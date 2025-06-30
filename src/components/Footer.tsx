@@ -19,7 +19,7 @@ const Footer = () => {
           <div className="flex items-center gap-4">
             <span className="text-sm text-gray-300">Conecte-se:</span>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/coderlucianasena/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
@@ -28,7 +28,7 @@ const Footer = () => {
               <span className="text-sm">LinkedIn</span>
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/coderlucianasena/recursos-amazonia"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
