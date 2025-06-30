@@ -425,6 +425,74 @@ const Index = () => {
             </Card>
           </div>
 
+          {/* Card Entrega da Tarefa Individual III - sem os botões removidos */}
+          <div className="mb-6 sm:mb-8 w-full max-w-full">
+            <Card className="border-emerald-200 bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50">
+              <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="flex items-center gap-2 sm:gap-3 text-emerald-700 text-lg sm:text-xl">
+                  <Target className="w-5 h-5 sm:w-6 sm:h-6" />
+                  Entrega da Tarefa Individual III
+                </CardTitle>
+                <CardDescription className="text-sm sm:text-base text-emerald-600">
+                  Análise EDA - Transformando dados sujos em informações confiáveis
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-4 sm:p-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+                  <div>
+                    <h4 className="font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
+                      <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
+                      Conteúdo da Análise EDA:
+                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span>Análise de 151 registros dos 2 datasets</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span>Limpeza de dados sujos identificados</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span>Estatísticas descritivas completas</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span>Matriz de correlação com 11 variáveis</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span>Visualizações: histogramas, scatter plots, heatmaps</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-700">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span>Interpretação dos resultados EDA</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="space-y-4">
+                      <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                        <p className="font-semibold text-blue-800 text-xs sm:text-sm mb-1">Nome do arquivo:</p>
+                        <p className="text-xs text-blue-600 font-mono">tarefa3_i2a2.pdf</p>
+                      </div>
+                      <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                        <p className="font-semibold text-green-800 text-xs sm:text-sm mb-1">Tema:</p>
+                        <p className="text-xs text-green-600">Recursos Hídricos e Produtividade na Amazônia</p>
+                      </div>
+                      <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                        <p className="font-semibold text-red-800 text-xs sm:text-sm mb-1">Prazo final:</p>
+                        <p className="text-xs text-red-600 font-mono">29 de junho de 2025 - 23:59:59</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
           <div className="w-full max-w-full overflow-x-hidden">
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 mb-6 sm:mb-8 h-auto max-w-full">
@@ -515,92 +583,6 @@ const Index = () => {
                     </CardContent>
                   </Card>
                 </div>
-
-                {/* Card do desafio da semana */}
-                <Card className="border-emerald-200 bg-gradient-to-br from-emerald-50 via-teal-50 to-blue-50 mb-6 sm:mb-8">
-                  <CardHeader className="p-4 sm:p-6">
-                    <CardTitle className="flex items-center gap-2 sm:gap-3 text-emerald-700 text-lg sm:text-xl">
-                      <Target className="w-5 h-5 sm:w-6 sm:h-6" />
-                      Instituto I²A² - Encontro 7: Desafio da Semana
-                    </CardTitle>
-                    <CardDescription className="text-sm sm:text-base text-emerald-600">
-                      IA Aplicada aos Desafios Socioambientais da Amazônia - VIBE Coding para Análise de Dados
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-                      <div>
-                        <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-emerald-100 rounded-lg">
-                          <h4 className="font-bold text-emerald-800 mb-2 sm:mb-3 flex items-center gap-2 text-sm sm:text-base">
-                            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
-                            Objetivo do 7º Encontro
-                          </h4>
-                          <p className="text-xs sm:text-sm text-emerald-700 leading-relaxed">
-                            Capacitar os alunos a utilizar a abordagem de <strong>Vibe Coding</strong> para 
-                            conduzir um ciclo completo de análise de dados, desde a manipulação 
-                            e visualização até a análise estatística inicial, aplicando esses 
-                            conhecimentos em um desafio prático com dados socioambientais da Amazônia.
-                          </p>
-                        </div>
-
-                        <h4 className="font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
-                          <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
-                          Entregáveis do Projeto:
-                        </h4>
-                        <ol className="text-xs sm:text-sm text-gray-700 space-y-2 list-decimal list-inside">
-                          <li><strong>Matriz de correlação com interpretação</strong> - Análise das relações entre variáveis</li>
-                          <li><strong>Gráficos de dispersão das variáveis</strong> - Visualização de padrões e tendências</li>
-                          <li><strong>Análise textual de padrões sazonais</strong> - Interpretação dos dados temporais</li>
-                          <li><strong>Dashboard interativo com insights</strong> - Interface visual para exploração</li>
-                          <li><strong>Relatório final em PDF</strong> - Documento consolidado com todas as análises</li>
-                        </ol>
-                      </div>
-                      
-                      <div>
-                        <div className="mb-4 sm:mb-6">
-                          <h4 className="font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2 text-sm sm:text-base">
-                            <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
-                            Mapa da Trilha do Conhecimento:
-                          </h4>
-                          <div className="space-y-3">
-                            <div className="p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                              <p className="font-semibold text-blue-800 text-xs sm:text-sm">1. Análise de Dados</p>
-                              <p className="text-xs text-blue-600">Estruturação e exploração dos datasets climático e socioeconômico</p>
-                            </div>
-                            <div className="p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
-                              <p className="font-semibold text-green-800 text-xs sm:text-sm">2. Vibe Coding para o Ciclo de Análise de Dados</p>
-                              <p className="text-xs text-green-600">Metodologia aplicada para insights valiosos</p>
-                            </div>
-                            <div className="p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                              <p className="font-semibold text-purple-800 text-xs sm:text-sm">3. Desafio da Semana</p>
-                              <p className="text-xs text-purple-600">Aplicação prática em dados amazônicos</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <h4 className="font-bold text-gray-800 mb-3 text-sm sm:text-base">Tecnologias Utilizadas:</h4>
-                        <ul className="text-xs sm:text-sm text-gray-600 space-y-1 mb-4">
-                          <li>• <strong>VIBE Coding + Prompt Engineering</strong> - Metodologia inovadora</li>
-                          <li>• <strong>Pandas para manipulação de dados</strong> - Processamento eficiente</li>
-                          <li>• <strong>Análise estatística exploratória</strong> - Descoberta de padrões</li>
-                          <li>• <strong>Visualização interativa</strong> - Dashboard responsivo</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-emerald-200">
-                      <div className="text-center">
-                        <p className="text-base sm:text-lg font-bold text-emerald-800 mb-2">
-                          🎯 "Transformando dados em insights para a sustentabilidade amazônica"
-                        </p>
-                        <p className="text-xs sm:text-sm text-gray-600">
-                          Projeto desenvolvido no Instituto I²A² - 
-                          Aplicação prática do VIBE Coding em desafios socioambientais reais
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
               </TabsContent>
 
               <TabsContent value="climate">
