@@ -48,24 +48,6 @@ npm install
 npm run dev
 ```
 
-O projeto estará disponível em `http://localhost:5173`
-
-## 📱 Deploy
-
-Este projeto pode ser facilmente deployado através do [Lovable](https://lovable.dev/projects/349888c5-edf9-468d-ba34-58cbab7d97b9):
-
-1. Acesse o projeto no Lovable
-2. Clique em **Share** → **Publish**
-3. Seu dashboard estará disponível online
-
-### Domínio Customizado
-
-Para conectar um domínio personalizado:
-1. Navegue até **Project** → **Settings** → **Domains**
-2. Clique em **Connect Domain**
-3. Siga as instruções para configuração
-
-Mais informações: [Configurando domínio customizado](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
 
 ## 📈 Estrutura do Projeto
 
@@ -112,8 +94,8 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 **Luciana Sena**  
 *Desenvolvedora e Analista de Dados*
 
-- 🔗 [LinkedIn](https://linkedin.com)
-- 🐙 [GitHub](https://github.com)
+- 🔗 [LinkedIn](www.linkedin.com/in/coderlucianasena)
+- 🐙 [GitHub](https://github.com/coderlucianasena/recursos-amazonia.git)
 - 📧 Contato profissional disponível via LinkedIn
 
 ---
