@@ -91,7 +91,7 @@ Este projeto foi desenvolvido como parte do programa VIBE Coding, focando em boa
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+Este projeto está sob a licença MIT. 
 
 ## 👩‍💻 Autora
 
@@ -100,7 +100,6 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 
 - 🔗 **LinkedIn**: https://www.linkedin.com/in/coderlucianasena/
 - 🐙 **GitHub**: https://github.com/coderlucianasena/recursos-amazonia
-- 📧 Contato profissional disponível via LinkedIn
 
 ---
 
