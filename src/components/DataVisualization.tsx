@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -360,16 +359,6 @@ const DataVisualization = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="flex gap-3 mt-6">
-            <Button onClick={handleExportEDAReport} className="flex items-center gap-2">
-              <Download className="w-4 h-4" />
-              Exportar tarefa3_i2a2.pdf
-            </Button>
-            <Button variant="outline" className="flex items-center gap-2">
-              <FileText className="w-4 h-4" />
-              Visualizar Análise Completa
-            </Button>
           </div>
         </CardContent>
       </Card>
